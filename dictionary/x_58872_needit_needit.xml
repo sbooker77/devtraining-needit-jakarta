@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
-    <element audit="true" extends="task" label="NeedIt" max_length="40" name="x_58872_needit_needit" type="collection">
+    <element audit="true" extends="task" label="NeedIt" max_length="40" name="x_58872_needit_needit" sizeclass="5" type="collection">
         <element label="New field 1" max_length="40" name="new_field_1" type="string"/>
         <element label="New field 2" max_length="40" name="new_field_2" type="integer"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" display="true" label="Other" mandatory="true" max_length="40" name="u_other" type="string" use_dependent_field="true">
+            <choice>
+                <element label="Other" sequence="0" value="Other"/>
+                <element label="Choice 2" sequence="1" value="Choice 2"/>
+                <element label="Choice 3" sequence="2" value="Choice 3"/>
+            </choice>
+        </element>
         <element label="Requested for" mandatory="true" max_length="32" name="u_requested_for" reference="sys_user" type="reference"/>
         <element attributes="edge_encryption_enabled=true" choice="3" default="legal" label="Request type" mandatory="true" max_length="40" name="u_request_type" type="string">
             <choice>
@@ -20,8 +27,8 @@
                 <element label="Facilities 2" sequence="3" value="facilities2"/>
                 <element label="Legal 1" sequence="4" value="legal1"/>
                 <element label="Legal 2" sequence="5" value="legal2"/>
-                <element label="Your Department Choice 1" sequence="6" value="your_choice1"/>
-                <element label="Your Department Choice 2" sequence="7" value="your_choice2"/>
+                <element label="Your Department Choice 2" sequence="6" value="your_choice2"/>
+                <element label="Other" sequence="7" value="Other"/>
             </choice>
         </element>
         <element label="When needed" mandatory="true" max_length="40" name="u_when_needed" type="glide_date_time"/>
